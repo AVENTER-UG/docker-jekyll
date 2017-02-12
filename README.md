@@ -1,7 +1,7 @@
 This Docker image will clone your jekyll GIT Repo, "compile" your website via jekyll and publish it via nginx. Important to know is, if you use bundle, this image will see it and use it too.
 
 If you want to use this docker image via Mesos, here is a small example of a marathon json file.
-
+```
 {
   "id": "/homepages/<HOMEPAGENAME>",
   "cmd": null,
@@ -36,4 +36,5 @@ If you want to use this docker image via Mesos, here is a small example of a mar
     "HAPROXY_0_VHOST": "aventer.<MESOS DOMAIN>
   }
 }
+```
 
