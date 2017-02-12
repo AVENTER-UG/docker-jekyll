@@ -1,26 +1,19 @@
 #!/bin/bash
 set -e
 
-if [ -e /target ]
-then
-  rm -r /target
-fi
-
-mkdir /target
-
-cd /target
+cd /var/www/html/
 
 echo ">>>>>> " $GIT_REPO
 git clone $GIT_REPO .
 
 ls -l
 
-if [ -e /target/Gemfile ]
+if [ -e /var/www/html/Gemfile ]
 then
   bundle install
-  bundle exec $@
+  bundle exec jekyll build
 else
-  exec "$@"
+  jekyll build
 fi
-
+exec "$@"
 
