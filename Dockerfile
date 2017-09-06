@@ -18,8 +18,8 @@ RUN yum groupinstall -y "Development Tools" && \
     make install && \
     gem update --system && \
     gem install --no-rdoc --no-ri jekyll && \
-    #gem install RedCloth --version 4.2.2 && \
-    #gem install bundle && \
+    gem install RedCloth --version 4.2.2 && \
+    gem install bundle && \
     mkdir -p /var/www/html && \
     yum clean all
 
