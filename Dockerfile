@@ -10,9 +10,9 @@ COPY nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN yum groupinstall -y "Development Tools" && \
     yum install -y gcc openssl-devel make nodejs git zlib zlib-devel nginx wget && \
-    wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && \
-    tar xvfvz ruby-2.1.2.tar.gz && \
-    cd ruby-2.1.2 && \
+    wget http://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.3.tar.gz && \
+    tar xvfvz ruby-2.4.3.tar.gz && \
+    cd ruby-2.4.3 && \
     ./configure && \
     make && \
     make install && \
