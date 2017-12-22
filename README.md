@@ -1,6 +1,62 @@
+# Docker image to use jekyll
+
+[![Build Status](https://travis-ci.org/AVENTER-UG/docker-jekyll.svg?branch=master)](https://travis-ci.org/AVENTER-UG/docker-jekyll)
+
+Please don't forget to donate a small fee: [![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/AVENTER/donate)
+
+
 This Docker image will clone your jekyll GIT Repo, "compile" your website via jekyll and publish it via nginx. Important to know is, if you use bundle, this image will see it and use it too.
 
-If you want to use this docker image via Mesos, here is a small example of a marathon json file.
+## Github Repo
+
+[https://github.com/AVENTER-UG](https://github.com/AVENTER-UG)
+
+## Security 
+
+We verify our image automaticly by clair. If you want to see the current security status, please have a look in travis-ci.
+
+## Dockerfile
+
+```
+FROM centos:latest
+MAINTAINER Andreas Peters <support@aventer.biz>
+
+ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV GIT_REPO https://
+
+COPY nginx.repo /etc/yum.repos.d/nginx.repo
+
+RUN yum groupinstall -y "Development Tools" && \
+    yum install -y gcc openssl-devel make nodejs git zlib zlib-devel nginx wget && \
+    wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && \
+    tar xvfvz ruby-2.1.2.tar.gz && \
+    cd ruby-2.1.2 && \
+    ./configure && \
+    make && \
+    make install && \
+    gem update --system && \
+    gem install --no-rdoc --no-ri jekyll && \
+    gem install RedCloth --version 4.2.2 && \
+    gem install bundle && \
+    mkdir -p /var/www/html && \
+    yum clean all
+
+EXPOSE 8888
+
+
+COPY jekyll-entrypoint.sh /bin/entrypoint.sh
+COPY nginx.conf /etc/nginx/nginx.conf
+
+
+ENTRYPOINT ["/bin/entrypoint.sh"]
+
+CMD ["/usr/sbin/nginx"]
+```
+
+## Marathon
+
 ```
 {
   "id": "/homepages/<HOMEPAGENAME>",
@@ -37,4 +93,3 @@ If you want to use this docker image via Mesos, here is a small example of a mar
   }
 }
 ```
-

@@ -1,0 +1,20 @@
+services:
+  - docker
+
+install:
+  - go get github.com/optiopay/klar
+
+
+script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker run -d --name db arminc/clair-db:$(date -d "1 day ago" +%Y-%m-%d)
+  - docker run -d -p 6060-6061:6060-6061 --link db:postgres --name clair arminc/clair-local-scan:v2.0.1    
+  - docker build -t avhost/docker-jekyll:clair .
+  - docker push avhost/docker-jekyll:clair  
+  - CLAIR_ADDR=http://localhost CLAIR_OUTPUT=High CLAIR_THRESHOLD=10 klar avhost/docker-jekyll:clair 
+
+after_success:
+  - docker build -t avhost/docker-jekyll .
+  - docker push avhost/docker-jekyll
+  
+
