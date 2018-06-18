@@ -1,5 +1,5 @@
 FROM centos:latest
-MAINTAINER Andreas Peters <support@aventer.biz>
+LABEL maintainer="Andreas Peters <support@aventer.biz>"
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
