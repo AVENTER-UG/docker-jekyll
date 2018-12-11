@@ -17,7 +17,7 @@ fi
 
 if [ -e /var/www/html/Gemfile ]
 then
-  bundle install
+  bundle install --full-index
   bundle exec jekyll build
 else
   jekyll build
