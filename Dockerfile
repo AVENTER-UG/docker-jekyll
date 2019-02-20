@@ -20,7 +20,6 @@ RUN yum groupinstall -y "Development Tools" && \
     gem install jekyll && \
     gem install RedCloth --version 4.2.2 && \
     gem install bundle && \
-    mkdir -p /var/www/html && \
     yum clean all
 
 EXPOSE 8888
@@ -30,6 +29,8 @@ COPY jekyll-entrypoint.sh /bin/entrypoint.sh
 COPY nginx.conf /etc/nginx/nginx.conf
 
 USER nginx
+
+WORKDIR /var/www/html
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
 
