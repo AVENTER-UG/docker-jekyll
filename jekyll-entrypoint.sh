@@ -22,5 +22,7 @@ then
 else
   jekyll build
 fi
+
+rm -rf /var/www/html/.git
 exec "$@"
 
