@@ -29,6 +29,7 @@ EXPOSE 8888
 COPY jekyll-entrypoint.sh /bin/entrypoint.sh
 COPY nginx.conf /etc/nginx/nginx.conf
 
+USER nginx
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
 
