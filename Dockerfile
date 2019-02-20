@@ -20,7 +20,9 @@ RUN yum groupinstall -y "Development Tools" && \
     gem install jekyll && \
     gem install RedCloth --version 4.2.2 && \
     gem install bundle && \
-    yum clean all
+    mkdir /var/www/html && \
+    chown -R nginx: /var/www/html && \
+    yum clean all 
 
 EXPOSE 8888
 
