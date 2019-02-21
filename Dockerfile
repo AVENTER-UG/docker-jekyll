@@ -35,7 +35,5 @@ WORKDIR /var/www/html
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
 
-USER nginx
-
 CMD ["/usr/sbin/nginx"]
 
