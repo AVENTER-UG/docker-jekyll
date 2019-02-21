@@ -28,15 +28,14 @@ RUN yum groupinstall -y "Development Tools" && \
 
 EXPOSE 8888
 
-
 COPY jekyll-entrypoint.sh /bin/entrypoint.sh
 COPY nginx.conf /etc/nginx/nginx.conf
-
-USER nginx
 
 WORKDIR /var/www/html
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
+
+USER nginx
 
 CMD ["/usr/sbin/nginx"]
 
