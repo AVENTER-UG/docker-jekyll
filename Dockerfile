@@ -21,7 +21,9 @@ RUN yum groupinstall -y "Development Tools" && \
     gem install RedCloth --version 4.2.2 && \
     gem install bundle && \
     mkdir -p /var/www/html && \
+    mkdir -p /var/cache/nginx && \
     chown -R nginx: /var/www/html && \
+    chown -R nginx: /var/cache/nginx && \
     yum clean all 
 
 EXPOSE 8888
