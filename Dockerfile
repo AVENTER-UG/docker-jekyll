@@ -9,14 +9,7 @@ ENV GIT_REPO https://
 COPY nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN yum groupinstall -y "Development Tools" && \
-    yum install -y gcc openssl-devel make nodejs git zlib zlib-devel nginx wget && \
-    wget http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.1.tar.gz && \
-    tar xvfvz ruby-2.6.1.tar.gz && \
-    cd ruby-2.6.1 && \
-    ./configure && \
-    make && \
-    make install && \
-    gem update --system && \
+    yum install -y nodejs git nginx ruby ruby-devel rubygems && \
     gem install jekyll && \
     gem install RedCloth --version 4.2.2 && \
     gem install bundle && \
