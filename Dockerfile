@@ -3,7 +3,7 @@ LABEL maintainer="Andreas Peters <support@aventer.biz>"
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
+ENV LC_ALL C.UTF-8
 ENV GIT_REPO https://
 
 COPY nginx.repo /etc/yum.repos.d/nginx.repo
