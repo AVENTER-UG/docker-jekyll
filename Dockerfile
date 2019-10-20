@@ -9,7 +9,7 @@ ENV GIT_REPO https://
 COPY nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN yum groupinstall -y "Development Tools" && \
-    yum install -y nodejs git nginx ruby ruby-devel rubygems && \
+    yum install --nogpgcheck -y nodejs git nginx ruby ruby-devel rubygems && \
     gem install jekyll && \
     gem install RedCloth --version 4.2.2 && \
     gem install bundle && \
