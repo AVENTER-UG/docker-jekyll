@@ -19,7 +19,7 @@ fi
 
 if [ -e /var/www/html/Gemfile ]
 then
-  bundle install 
+  bundle install --jobs 8
   bundle exec jekyll build --trace
 else
   jekyll build --trace

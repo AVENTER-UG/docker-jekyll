@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN gem install bundle
 RUN apk add gettext nginx git
 RUN mkdir -p /var/www/html && \
-    mkdir -p /var/cache/nginx && \    
+    mkdir -p /var/cache/nginx && \
     chown -R jekyll: /var/www/html && \
     chown -R jekyll: /var/cache/nginx && \
     mkdir /run/nginx && \
@@ -22,6 +22,10 @@ EXPOSE 8888
 
 COPY jekyll-entrypoint.sh /bin/entrypoint.sh
 COPY nginx.conf.ini /tmp/nginx.conf.ini
+COPY Gemfile /home/jekyll
+
+RUN cd /home/jekyll && \
+    bundle install
 
 WORKDIR /var/www/html
 
