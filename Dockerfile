@@ -25,7 +25,8 @@ COPY nginx.conf.ini /tmp/nginx.conf.ini
 COPY Gemfile /home/jekyll
 
 RUN cd /home/jekyll && \
-    bundle install
+    chown -R jekyll: /usr/gem && \
+    bundle install; exit 0
 
 WORKDIR /var/www/html
 
