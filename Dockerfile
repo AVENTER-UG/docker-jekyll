@@ -1,4 +1,4 @@
-FROM  jekyll/jekyll:4.0
+FROM  jekyll/jekyll:4.2.2
 LABEL maintainer="Andreas Peters <support@aventer.biz>"
 
 ENV LANGUAGE en_US.UTF-8
@@ -14,7 +14,6 @@ RUN mkdir -p /var/www/html && \
     mkdir -p /var/cache/nginx && \
     chown -R jekyll: /var/www/html && \
     chown -R jekyll: /var/cache/nginx && \
-    mkdir /run/nginx && \
     chown -R jekyll: /run/nginx
 
 
