@@ -28,7 +28,7 @@ publish-latest:
 publish-tag:
 	@echo ">>>> Publish docker image"
 	docker tag ${IMAGEFULLNAME}:${BRANCH} ${IMAGEFULLNAME}:${TAG}
-	docker push ${IMAGEFULLNAMEPUB}:${TAG}
+	docker push ${IMAGEFULLNAME}:${TAG}
 
 
 all: build publish-latest
