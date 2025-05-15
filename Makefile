@@ -1,10 +1,10 @@
 #Dockerfile vars
 
 #vars
-TAG=4.2.2
+TAG=4.4.1
 IMAGENAME=docker-jekyll
 IMAGEFULLNAME=avhost/${IMAGENAME}
-IMAGETAG=v4.2.2-2
+IMAGETAG=v4.4.1
 
 .DEFAULT_GOAL := all
 
