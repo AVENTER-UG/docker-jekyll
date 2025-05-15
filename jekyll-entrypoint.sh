@@ -25,7 +25,10 @@ else
   jekyll build --trace
 fi
 
-rm -rf /var/www/html/.git
+if [ -e /var/www/html/_site/.git ]
+then
+  rm -rf /var/www/html/_site/.git
+fi
 
 envsubst \$av_logging < /tmp/nginx.conf.ini > /etc/nginx/nginx.conf
 
