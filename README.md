@@ -6,7 +6,7 @@ This Docker image will clone your jekyll GIT Repo, "compile" your website via je
 ## How to use?
 
 ```bash
-docker run p 80:8888 -e GIT_REPO=https://<MY_GIT_REPO_WITH_THE_JEKYLL_WEBSITE> avhost/docker-jekyll:latest
+docker run -p 80:8888 -e GIT_REPO=https://<MY_GIT_REPO_WITH_THE_JEKYLL_WEBSITE> avhost/docker-jekyll:latest
 ```
 
 To use TLS please you a TLS Proxy.
