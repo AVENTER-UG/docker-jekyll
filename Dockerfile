@@ -17,6 +17,7 @@ RUN apk add linux-headers openjdk8-jre less zlib libxml2 \
 RUN apk add zlib-dev libffi-dev build-base libxml2-dev \
     imagemagick-dev readline-dev libxslt-dev libffi-dev yaml-dev zlib-dev \
     vips-dev vips-tools sqlite-dev cmake
+RUN apk upgrade
 
 
 RUN addgroup -Sg 1000 jekyll
