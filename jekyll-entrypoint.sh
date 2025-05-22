@@ -20,14 +20,14 @@ fi
 if [ -e /var/www/html/Gemfile ]
 then
   bundle install --jobs 8
-  bundle exec jekyll build --trace
+  bundle exec jekyll build
 else
-  jekyll build --trace
+  jekyll build
 fi
 
 if [ -e /var/www/html/_site/.git ]
 then
-  rm -rf /var/www/html/_site/.git
+	rm -rf /var/www/html/_site/.git
 fi
 
 envsubst \$av_logging < /tmp/nginx.conf.ini > /etc/nginx/nginx.conf

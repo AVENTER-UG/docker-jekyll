@@ -1,16 +1,16 @@
 #Dockerfile vars
 
 #vars
-TAG=4.2.2
+TAG=4.4.1
 IMAGENAME=docker-jekyll
 IMAGEFULLNAME=avhost/${IMAGENAME}
-IMAGETAG=v4.2.2-3
+IMAGETAG=v4.4.1
 
 .DEFAULT_GOAL := all
 
 build:
 	@echo ">>>> Build docker image"
-	@docker buildx build --build-arg TAG=${TAG} --build-arg BUILDDATE=${BUILDDATE} -t ${IMAGEFULLNAME}:${BRANCH} .
+	@docker build --build-arg TAG=${TAG} --build-arg BUILDDATE=${BUILDDATE} -t ${IMAGEFULLNAME}:latest .
 
 push:
 	@echo ">>>> Publish docker image: " ${IMAGETAG}
@@ -20,4 +20,4 @@ push:
 	@docker buildx rm buildkit
 
 
-all: build push
+all: build
