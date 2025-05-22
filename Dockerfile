@@ -19,7 +19,6 @@ RUN apk add zlib-dev libffi-dev build-base libxml2-dev \
     vips-dev vips-tools sqlite-dev cmake
 RUN apk upgrade
 
-
 RUN addgroup -Sg 1000 jekyll
 RUN adduser  -Su 1000 -G jekyll jekyll
 
