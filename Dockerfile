@@ -1,4 +1,4 @@
-FROM ruby:alpine3.21
+FROM ruby:alpine3.22
 
 LABEL maintainer="Andreas Peters <support@aventer.biz>"
 
