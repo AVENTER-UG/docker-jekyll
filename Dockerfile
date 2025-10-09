@@ -3,11 +3,11 @@ FROM ruby:alpine3.22
 LABEL maintainer="Andreas Peters <support@aventer.biz>"
 
 ENV JEKYLL_VERSION=4.4.1
-ENV LANGUAGE en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LC_ALL C.UTF-8
-ENV GIT_REPO https://
-ENV av_logging off
+ENV LANGUAGE=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV GIT_REPO=https://
+ENV av_logging=off
 
 RUN apk update
 RUN apk add jekyll
