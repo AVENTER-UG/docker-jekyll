@@ -26,7 +26,7 @@ build:
 push:
 	@echo ">>>> Publish docker image: " ${BRANCH}
 	-docker buildx create --use --name buildkit
-	@docker buildx build  --sbom=true --provenance=true  --platform linux/arm64,linux/amd64 --push -t ${IMAGEFULLNAME}:${TAG} .
-	@docker buildx build  --sbom=true --provenance=true  --platform linux/arm64,linux/amd64 --push -t ${IMAGEFULLNAME}:latest .
+	@docker buildx build  --sbom=true --provenance=true  --platform linux/amd64 --push -t ${IMAGEFULLNAME}:${TAG} .
+	@docker buildx build  --sbom=true --provenance=true  --platform linux/amd64 --push -t ${IMAGEFULLNAME}:latest .
 
 all: build seccheck imagecheck sboom
